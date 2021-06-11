@@ -1,0 +1,9 @@
+C:\www\SistemaOficinas\src\SistemaOficinas.Domain\bin\Debug\netcoreapp3.1\SistemaOficinas.Domain.deps.json
+C:\www\SistemaOficinas\src\SistemaOficinas.Domain\bin\Debug\netcoreapp3.1\SistemaOficinas.Domain.dll
+C:\www\SistemaOficinas\src\SistemaOficinas.Domain\bin\Debug\netcoreapp3.1\SistemaOficinas.Domain.pdb
+C:\www\SistemaOficinas\src\SistemaOficinas.Domain\obj\Debug\netcoreapp3.1\SistemaOficinas.Domain.csprojAssemblyReference.cache
+C:\www\SistemaOficinas\src\SistemaOficinas.Domain\obj\Debug\netcoreapp3.1\SistemaOficinas.Domain.AssemblyInfoInputs.cache
+C:\www\SistemaOficinas\src\SistemaOficinas.Domain\obj\Debug\netcoreapp3.1\SistemaOficinas.Domain.AssemblyInfo.cs
+C:\www\SistemaOficinas\src\SistemaOficinas.Domain\obj\Debug\netcoreapp3.1\SistemaOficinas.Domain.csproj.CoreCompileInputs.cache
+C:\www\SistemaOficinas\src\SistemaOficinas.Domain\obj\Debug\netcoreapp3.1\SistemaOficinas.Domain.dll
+C:\www\SistemaOficinas\src\SistemaOficinas.Domain\obj\Debug\netcoreapp3.1\SistemaOficinas.Domain.pdb
