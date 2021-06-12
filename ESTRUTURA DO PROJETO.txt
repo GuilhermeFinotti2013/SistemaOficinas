@@ -1,0 +1,4 @@
+ESTRUTURA DO PROJETO
+MVC - views
+DATA - ORM, migrations
+DOMAIN - Entidades

@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SistemaOficinas.Domain.Entities;
+using SistemaOficinas.Domain.Models;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -14,6 +15,6 @@ namespace SistemaOficinas.Data.ORM
 
         }
 
-        public DbSet<Fabricante> Fabricante { get; set; }
+        public DbSet<Cliente> Cliente { get; set; }
     }
 }

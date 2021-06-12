@@ -21,7 +21,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SistemaOficinas.Mvc", "src\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SistemaOficinas.Data", "src\SistemaOficinas.Data\SistemaOficinas.Data.csproj", "{1FA7AF66-485A-4BEA-A52D-D7DF59562D81}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SistemaOficinas.Domain", "src\SistemaOficinas.Domain\SistemaOficinas.Domain.csproj", "{F1F7F438-981A-40C5-96A1-611221D8AD20}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SistemaOficinas.Domain", "src\SistemaOficinas.Domain\SistemaOficinas.Domain.csproj", "{F1F7F438-981A-40C5-96A1-611221D8AD20}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
