@@ -3,3 +3,7 @@
 /.vs/SistemaOficinas/v16/.suo
 /src/SistemaOficinas.Mvc/obj
 /src/SistemaOficinas.Repository/obj
+/src/SistemaOficinas.Aplicacao/obj
+/src/SistemaOficinas.Domain/obj
+/src/SistemaOficinas.Domain/bin
+/src/SistemaOficinas.Data/obj
