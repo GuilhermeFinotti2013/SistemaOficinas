@@ -1,0 +1,22 @@
+﻿using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using SistemaOficinas.Domain.Interfaces.Entidades;
+using SistemaOficinas.Repository.Entidades;
+
+namespace SistemaOficinas.Mvc.Configuration
+{
+    public static class DependencyInjectConfig
+    {
+        public static IServiceCollection AddDependencyInjectConfig(this IServiceCollection services, IConfiguration configuration)
+        {
+            #region Repositórios
+            services.AddScoped<IClienteRepositorio, ClienteRepositorio>();
+            #endregion
+            return services;
+        }
+    }
+}

@@ -26,6 +26,7 @@ namespace SistemaOficinas.Mvc
         {
             #region Utilizado métodos de extensão de IServiceCollection;
             services.AddDbContextConfig(Configuration);
+            services.AddDependencyInjectConfig(Configuration);
             #endregion
             services.AddControllersWithViews();
         }

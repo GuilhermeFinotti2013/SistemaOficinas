@@ -7,3 +7,7 @@
 /src/SistemaOficinas.Domain/obj
 /src/SistemaOficinas.Domain/bin
 /src/SistemaOficinas.Data/obj
+/src/SistemaOficinas.Data/bin
+/src/SistemaOficinas.Mvc/bin
+/src/SistemaOficinas.DomainCore/bin
+/src/SistemaOficinas.Repository/bin

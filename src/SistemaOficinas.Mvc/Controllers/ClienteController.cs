@@ -7,34 +7,36 @@ using System.Threading.Tasks;
 using SistemaOficinas.Data.ORM;
 using Microsoft.EntityFrameworkCore;
 using SistemaOficinas.Domain.Models;
+using SistemaOficinas.Domain.Interfaces.Entidades;
 
 namespace SistemaOficinas.Mvc.Controllers
 {
     public class ClienteController : Controller
     {
         private readonly OficinasDbContext _context;
+        private readonly IClienteRepositorio _clienteRepositorio;
 
-        public ClienteController(OficinasDbContext context)
+        public ClienteController(OficinasDbContext context, IClienteRepositorio clienteRepositorio)
         {
             _context = context;
+            _clienteRepositorio = clienteRepositorio;
         }
 
         // GET: Cliente
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Cliente.ToListAsync());
+            return View(await _clienteRepositorio.Listar());
         }
 
         // GET: Cliente/Details/5
-        public async Task<IActionResult> Details(Guid? id)
+        public async Task<IActionResult> Details(Guid id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var cliente = await _context.Cliente
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var cliente = await _clienteRepositorio.Obter(id);
             if (cliente == null)
             {
                 return NotFound();
@@ -59,22 +61,21 @@ namespace SistemaOficinas.Mvc.Controllers
             if (ModelState.IsValid)
             {
                 cliente.Id = Guid.NewGuid();
-                _context.Add(cliente);
-                await _context.SaveChangesAsync();
+                await _clienteRepositorio.Inserir(cliente);
                 return RedirectToAction(nameof(Index));
             }
             return View(cliente);
         }
 
         // GET: Cliente/Edit/5
-        public async Task<IActionResult> Edit(Guid? id)
+        public async Task<IActionResult> Edit(Guid id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var cliente = await _context.Cliente.FindAsync(id);
+            var cliente = await _clienteRepositorio.Obter(id);
             if (cliente == null)
             {
                 return NotFound();
@@ -98,8 +99,7 @@ namespace SistemaOficinas.Mvc.Controllers
             {
                 try
                 {
-                    _context.Update(cliente);
-                    await _context.SaveChangesAsync();
+                    await _clienteRepositorio.Atualizar(cliente);
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -118,15 +118,14 @@ namespace SistemaOficinas.Mvc.Controllers
         }
 
         // GET: Cliente/Delete/5
-        public async Task<IActionResult> Delete(Guid? id)
+        public async Task<IActionResult> Delete(Guid id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var cliente = await _context.Cliente
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var cliente = await _clienteRepositorio.Obter(id);
             if (cliente == null)
             {
                 return NotFound();
@@ -140,15 +139,13 @@ namespace SistemaOficinas.Mvc.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(Guid id)
         {
-            var cliente = await _context.Cliente.FindAsync(id);
-            _context.Cliente.Remove(cliente);
-            await _context.SaveChangesAsync();
+            await _clienteRepositorio.ExcluirPorId(id);
             return RedirectToAction(nameof(Index));
         }
 
         private bool ClienteExists(Guid id)
         {
-            return _context.Cliente.Any(e => e.Id == id);
+            return _clienteRepositorio.ClienteExiste(id);
         }
     }
 }

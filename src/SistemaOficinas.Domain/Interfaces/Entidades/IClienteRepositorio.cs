@@ -10,5 +10,6 @@ namespace SistemaOficinas.Domain.Interfaces.Entidades
 {
     public interface IClienteRepositorio : IRepositorioGenerico<Cliente, Guid>
     {
+        bool ClienteExiste(Guid id);
     }
 }
