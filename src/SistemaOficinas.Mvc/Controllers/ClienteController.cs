@@ -4,21 +4,18 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using SistemaOficinas.Data.ORM;
 using Microsoft.EntityFrameworkCore;
 using SistemaOficinas.Domain.Models;
-using SistemaOficinas.Domain.Interfaces.Entidades;
+using SistemaOficinas.Domain.Interfaces.Repositorio;
 
 namespace SistemaOficinas.Mvc.Controllers
 {
     public class ClienteController : Controller
     {
-        private readonly OficinasDbContext _context;
         private readonly IClienteRepositorio _clienteRepositorio;
 
-        public ClienteController(OficinasDbContext context, IClienteRepositorio clienteRepositorio)
+        public ClienteController( IClienteRepositorio clienteRepositorio)
         {
-            _context = context;
             _clienteRepositorio = clienteRepositorio;
         }
 

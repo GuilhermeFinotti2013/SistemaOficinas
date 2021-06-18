@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 using SistemaOficinas.Repository.Base;
 using SistemaOficinas.Domain.Models;
 using SistemaOficinas.Data.ORM;
-using SistemaOficinas.Domain.Interfaces.Entidades;
+using SistemaOficinas.Domain.Interfaces.Repositorio;
 
-namespace SistemaOficinas.Repository.Entidades
+namespace SistemaOficinas.Aplicacao.Repositorio
 {
     public class ClienteRepositorio : RepositorioGenerico<Cliente, Guid>, IClienteRepositorio
     {

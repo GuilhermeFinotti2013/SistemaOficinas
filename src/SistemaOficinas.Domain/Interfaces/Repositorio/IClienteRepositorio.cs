@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 using SistemaOficinas.Domain.Models;
 using SistemaOficinas.DomainCore.Base;
 
-namespace SistemaOficinas.Domain.Interfaces.Entidades
+namespace SistemaOficinas.Domain.Interfaces.Repositorio
 {
-    public interface IClienteRepositorio : IRepositorioGenerico<Cliente, Guid>
+    public interface IClienteRepositorio : IRepositorio<Cliente, Guid>
     {
         bool ClienteExiste(Guid id);
     }

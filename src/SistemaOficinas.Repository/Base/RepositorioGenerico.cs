@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace SistemaOficinas.Repository.Base
 {
-    public abstract class RepositorioGenerico<TEntidade, TChave> : IRepositorioGenerico<TEntidade, TChave> where TEntidade : class, new()
+    public abstract class RepositorioGenerico<TEntidade, TChave> : IRepositorio<TEntidade, TChave> where TEntidade : class, new()
     {
         protected OficinasDbContext _contexto;
 

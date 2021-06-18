@@ -8,4 +8,8 @@
     <ProjectReference Include="..\SistemaOficinas.DomainCore\SistemaOficinas.DomainCore.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Interfaces\Servico\" />
+  </ItemGroup>
+
 </Project>

@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace SistemaOficinas.DomainCore.Base
 {
-    public interface IRepositorioGenerico<TEntidade, TChave> : IDisposable where TEntidade : class
+    public interface IRepositorio<TEntidade, TChave> : IDisposable where TEntidade : class
     {
         Task Atualizar(TEntidade entidade);
         Task Excluir(TEntidade entidade);

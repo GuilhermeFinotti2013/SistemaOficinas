@@ -4,8 +4,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using SistemaOficinas.Domain.Interfaces.Entidades;
-using SistemaOficinas.Repository.Entidades;
+using SistemaOficinas.Domain.Interfaces.Repositorio;
+using SistemaOficinas.Aplicacao.Repositorio;
 
 namespace SistemaOficinas.Mvc.Configuration
 {
