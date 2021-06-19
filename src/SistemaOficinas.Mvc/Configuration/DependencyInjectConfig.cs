@@ -16,6 +16,7 @@ namespace SistemaOficinas.Mvc.Configuration
             #region Repositórios
             services.AddScoped<IClienteRepositorio, ClienteRepositorio>();
             services.AddScoped<IMarcaCarroRepositorio, MarcaCarroRepositorio>();
+            services.AddScoped<IFormaPagamentoRepositorio, FormaPagamentoRepositorio>();
             #endregion
             return services;
         }

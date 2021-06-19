@@ -18,6 +18,7 @@ namespace SistemaOficinas.Data.ORM
 
         public DbSet<Cliente> Cliente { get; set; }
         public DbSet<MarcaCarro> MarcaCarro { get; set; }
+        public DbSet<FormaPagamento> FormaPagamento { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
