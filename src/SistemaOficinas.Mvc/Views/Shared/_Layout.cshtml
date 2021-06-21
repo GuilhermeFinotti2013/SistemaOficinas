@@ -1,54 +1,54 @@
-﻿<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - SistemaOficinas.Mvc</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" />
-</head>
+﻿<!doctype html>
+<!--[if lt IE 8]><html class="no-js lt-ie8"> <![endif]-->
+<html class="no-js">
+@await Html.PartialAsync("PartialViews/_head")
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">SistemaOficinas.Mvc</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Cliente" asp-action="Index">Cliente</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="MarcaCarro" asp-action="Index">Marca</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="FormaPagamento" asp-action="Index">FormaPagamento</a>
-                        </li>
-                    </ul>
+    <!--[if lt IE 9]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+    @await Html.PartialAsync("PartialViews/_navbar")
+    <!-- .page-navbar -->
+    <!-- / page-navbar -->
+    <!-- #wrapper -->
+    <div id="wrapper">
+        <!-- .page-sidebar -->
+        <aside id="sidebar" class="page-sidebar hidden-md hidden-sm hidden-xs">
+            <!-- Start .sidebar-inner -->
+            <div class="sidebar-inner">
+                <!-- Start .sidebar-scrollarea -->
+                <div class="sidebar-scrollarea">
+                    <!--  .sidebar-panel -->
+                    @await Html.PartialAsync("PartialViews/_perfil_usuario")
+                    <div class="sidebar-panel">
+                        <h5 class="sidebar-panel-title">Navigation</h5>
+                    </div>
+                    <!-- / .sidebar-panel -->
+                    <!-- .side-nav -->
+                    <div class="side-nav">
+                        <ul class="nav">
+                            @await Html.PartialAsync("PartialViews/_li_menu_left")
+                        </ul>
+                    </div>
+                    <!-- / side-nav -->
                 </div>
+                <!-- End .sidebar-scrollarea -->
             </div>
-        </nav>
-    </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
+            <!-- End .sidebar-inner -->
+        </aside>
+        <!-- / page-sidebar -->
+        <!-- Start #right-sidebar -->
+        @await Html.PartialAsync("PartialViews/_rightsidebar")
+        <!-- End #right-sidebar -->
+        <!-- Conteúdo-->
+        @RenderBody()
+
+    </div>
+    <!--Rodapé-->
+    @await Html.PartialAsync("PartialViews/_footer")
+    <div id="back-to-top">
+        <a href="#">Back to Top</a>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2021 - SistemaOficinas.Mvc - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
-    </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    @await RenderSectionAsync("Scripts", required: false)
+    @await Html.PartialAsync("PartialViews/_scripts")
 </body>
 </html>
