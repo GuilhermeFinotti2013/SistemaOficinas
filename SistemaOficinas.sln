@@ -29,7 +29,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SistemaOficinas.Repository"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2.Aplicacao", "2.Aplicacao", "{890BC034-1CEF-44CA-AC1A-4832B23493A3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SistemaOficinas.Aplicacao", "src\SistemaOficinas.Aplicacao\SistemaOficinas.Aplicacao.csproj", "{7F7FED76-A862-4F28-AB6C-A4A950DCBC12}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SistemaOficinas.Aplicacao", "src\SistemaOficinas.Aplicacao\SistemaOficinas.Aplicacao.csproj", "{7F7FED76-A862-4F28-AB6C-A4A950DCBC12}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
