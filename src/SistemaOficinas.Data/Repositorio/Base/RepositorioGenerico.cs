@@ -8,7 +8,7 @@ using SistemaOficinas.DomainCore.Base;
 using SistemaOficinas.Data.ORM;
 using Microsoft.EntityFrameworkCore;
 
-namespace SistemaOficinas.Repository.Base
+namespace SistemaOficinas.Data.Repositorio.Base
 {
     public abstract class RepositorioGenerico<TEntidade, TChave> : IRepositorio<TEntidade, TChave> where TEntidade : class, new()
     {
@@ -22,7 +22,7 @@ namespace SistemaOficinas.Repository.Base
         public virtual async Task Atualizar(TEntidade entidade)
         {
             _contexto.Entry(entidade).State = EntityState.Modified;
-            await this.SaveAsync();
+            await SaveAsync();
         }
 
         public void Dispose()
@@ -32,34 +32,34 @@ namespace SistemaOficinas.Repository.Base
 
         public virtual async Task Excluir(TEntidade entidade)
         {
-            this._contexto.Entry(entidade).State = EntityState.Deleted;
-            await this.SaveAsync();
+            _contexto.Entry(entidade).State = EntityState.Deleted;
+            await SaveAsync();
         }
 
         public virtual async Task ExcluirPorId(TChave id)
         {
-            TEntidade entity = await this.Obter(id);
-            await this.Excluir(entity);
+            TEntidade entity = await Obter(id);
+            await Excluir(entity);
         }
 
         public virtual async Task Inserir(TEntidade entidade)
         {
-            this._contexto.Set<TEntidade>().Add(entidade);
-            await this.SaveAsync();
+            _contexto.Set<TEntidade>().Add(entidade);
+            await SaveAsync();
         }
 
         public virtual async Task<IEnumerable<TEntidade>> Listar(Expression<Func<TEntidade, bool>> quando = null)
         {
             if (quando == null)
             {
-                return await this._contexto.Set<TEntidade>().AsNoTracking().ToListAsync();
+                return await _contexto.Set<TEntidade>().AsNoTracking().ToListAsync();
             }
-            return await this._contexto.Set<TEntidade>().AsNoTracking().Where(quando).ToListAsync();
+            return await _contexto.Set<TEntidade>().AsNoTracking().Where(quando).ToListAsync();
         }
 
         public virtual async Task<TEntidade> Obter(TChave id)
         {
-            return await this._contexto.Set<TEntidade>().FindAsync(id);
+            return await _contexto.Set<TEntidade>().FindAsync(id);
         }
 
         public virtual async Task<int> SaveAsync()

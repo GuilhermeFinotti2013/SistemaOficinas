@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using SistemaOficinas.Domain.Interfaces.Repositorio;
-using SistemaOficinas.Aplicacao.Repositorio;
+using SistemaOficinas.Data.Repositorio;
 
 namespace SistemaOficinas.Mvc.Configuration
 {
@@ -14,7 +14,6 @@ namespace SistemaOficinas.Mvc.Configuration
         public static IServiceCollection AddDependencyInjectConfig(this IServiceCollection services, IConfiguration configuration)
         {
             #region Repositórios
-            services.AddScoped<IClienteRepositorio, ClienteRepositorio>();
             services.AddScoped<IMarcaCarroRepositorio, MarcaCarroRepositorio>();
             services.AddScoped<IFormaPagamentoRepositorio, FormaPagamentoRepositorio>();
             #endregion

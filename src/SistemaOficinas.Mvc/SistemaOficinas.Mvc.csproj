@@ -24,7 +24,6 @@
     <ProjectReference Include="..\SistemaOficinas.Aplicacao\SistemaOficinas.Aplicacao.csproj" />
     <ProjectReference Include="..\SistemaOficinas.Data\SistemaOficinas.Data.csproj" />
     <ProjectReference Include="..\SistemaOficinas.Domain\SistemaOficinas.Domain.csproj" />
-    <ProjectReference Include="..\SistemaOficinas.Repository\SistemaOficinas.Repository.csproj" />
   </ItemGroup>
 
 </Project>
