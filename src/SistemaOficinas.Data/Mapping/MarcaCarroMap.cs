@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using SistemaOficinas.Domain.Models;
+using SistemaOficinas.Domain.Entities;
 
 namespace SistemaOficinas.Data.Mapping
 {

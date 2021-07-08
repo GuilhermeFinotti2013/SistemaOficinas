@@ -5,8 +5,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using SistemaOficinas.Domain.Models;
 using SistemaOficinas.Domain.Interfaces.Repositorio;
+using SistemaOficinas.Domain.Entities;
 
 namespace SistemaOficinas.Mvc.Controllers
 {

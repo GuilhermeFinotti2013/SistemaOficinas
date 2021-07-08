@@ -1,4 +1,4 @@
-﻿using SistemaOficinas.Domain.Models;
+﻿using SistemaOficinas.Domain.Entities;
 using SistemaOficinas.DomainCore.Base;
 using System;
 using System.Collections.Generic;

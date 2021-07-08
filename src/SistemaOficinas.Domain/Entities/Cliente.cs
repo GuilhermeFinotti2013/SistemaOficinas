@@ -1,17 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using SistemaOficinas.Domain.Entities;
 using SistemaOficinas.Domain.Enums;
 
-namespace SistemaOficinas.Domain.Models
+namespace SistemaOficinas.Domain.Entities
 {
     public class Cliente : EntityBase
     {
         public Cliente()
         {
-            this.DataCadastro = DateTime.Now;
-            this.Situacao = Situacao.Ativa;
+            DataCadastro = DateTime.Now;
+            Situacao = Situacao.Ativa;
         }
 
         public string Nome { get; set; }

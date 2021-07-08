@@ -1,7 +1,7 @@
 ﻿using SistemaOficinas.Data.ORM;
 using SistemaOficinas.Data.Repositorio.Base;
+using SistemaOficinas.Domain.Entities;
 using SistemaOficinas.Domain.Interfaces.Repositorio;
-using SistemaOficinas.Domain.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
