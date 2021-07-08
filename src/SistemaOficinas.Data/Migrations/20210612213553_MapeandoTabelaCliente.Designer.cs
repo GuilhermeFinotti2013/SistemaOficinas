@@ -21,7 +21,7 @@ namespace SistemaOficinas.Data.Migrations
                 .HasAnnotation("ProductVersion", "5.0.7")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("SistemaOficinas.Domain.Models.Cliente", b =>
+            modelBuilder.Entity("SistemaOficinas.Domain.Entities.Cliente", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()

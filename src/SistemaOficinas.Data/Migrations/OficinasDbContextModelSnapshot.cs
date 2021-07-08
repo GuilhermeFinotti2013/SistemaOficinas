@@ -19,7 +19,7 @@ namespace SistemaOficinas.Data.Migrations
                 .HasAnnotation("ProductVersion", "5.0.7")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("SistemaOficinas.Domain.Models.Cliente", b =>
+            modelBuilder.Entity("SistemaOficinas.Domain.Entities.Cliente", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -113,7 +113,7 @@ namespace SistemaOficinas.Data.Migrations
                     b.ToTable("Cliente");
                 });
 
-            modelBuilder.Entity("SistemaOficinas.Domain.Models.FormaPagamento", b =>
+            modelBuilder.Entity("SistemaOficinas.Domain.Entities.FormaPagamento", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -129,7 +129,7 @@ namespace SistemaOficinas.Data.Migrations
                     b.ToTable("FormaPagamento");
                 });
 
-            modelBuilder.Entity("SistemaOficinas.Domain.Models.MarcaCarro", b =>
+            modelBuilder.Entity("SistemaOficinas.Domain.Entities.MarcaCarro", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
