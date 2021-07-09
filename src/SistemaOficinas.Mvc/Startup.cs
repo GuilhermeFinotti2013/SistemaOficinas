@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using SistemaOficinas.Mvc.Configuration;
+using SistemaOficinas.Aplicacao.AutoMapper;
 
 namespace SistemaOficinas.Mvc
 {
@@ -24,6 +25,8 @@ namespace SistemaOficinas.Mvc
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddAutoMapper(typeof(AutoMapperConfig));
+
             #region Utilizado métodos de extensão de IServiceCollection;
             services.AddDbContextConfig(Configuration);
             services.AddDependencyInjectConfig(Configuration);
