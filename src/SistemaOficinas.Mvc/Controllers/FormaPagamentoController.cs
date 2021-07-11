@@ -7,33 +7,31 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using SistemaOficinas.Domain.Interfaces.Repositorio;
 using SistemaOficinas.Domain.Entities;
+using SistemaOficinas.Aplicacao.Interfaces;
 
 namespace SistemaOficinas.Mvc.Controllers
 {
     public class FormaPagamentoController : Controller
     {
         private readonly IFormaPagamentoRepositorio _formaPagamentoRepositorio;
+        private readonly IFormaPagamentoApplicationService _formaPagamentoApplicationService;
 
-        public FormaPagamentoController( IFormaPagamentoRepositorio formaPagamentoRepositorio)
+        public FormaPagamentoController(IFormaPagamentoRepositorio formaPagamentoRepositorio, IFormaPagamentoApplicationService formaPagamentoApplicationService)
         {
             _formaPagamentoRepositorio = formaPagamentoRepositorio;
+            _formaPagamentoApplicationService = formaPagamentoApplicationService;
         }
 
         // GET: FormaPagamento
         public async Task<IActionResult> Index()
         {
-            return View(await _formaPagamentoRepositorio.Listar());
+            return View(await _formaPagamentoApplicationService.Listar());
         }
 
         // GET: FormaPagamento/Details/5
         public async Task<IActionResult> Details(Guid id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var formaPagamento = await _formaPagamentoRepositorio.Obter(id);
+            var formaPagamento = await _formaPagamentoApplicationService.ObterFormaPagamento(id);
             if (formaPagamento == null)
             {
                 return NotFound();
@@ -67,12 +65,7 @@ namespace SistemaOficinas.Mvc.Controllers
         // GET: FormaPagamento/Edit/5
         public async Task<IActionResult> Edit(Guid id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var formaPagamento = await _formaPagamentoRepositorio.Obter(id);
+            var formaPagamento = await _formaPagamentoApplicationService.ObterFormaPagamento(id);
             if (formaPagamento == null)
             {
                 return NotFound();
@@ -142,7 +135,7 @@ namespace SistemaOficinas.Mvc.Controllers
 
         private bool FormaPagamentoExists(Guid id)
         {
-            return _formaPagamentoRepositorio.FormaPagamentoExiste(id);
+            return _formaPagamentoApplicationService.FormaPagamentoExiste(id);
         }
     }
 }

@@ -17,6 +17,7 @@ namespace SistemaOficinas.Mvc.Configuration
         {
             #region Aplicação
             services.AddScoped<IMarcaCarroApplicationService, MarcaCarroApplicationService>();
+            services.AddScoped<IFormaPagamentoApplicationService, FormaPagamentoApplicationService>();
             #endregion
 
             #region Domain -> Service
