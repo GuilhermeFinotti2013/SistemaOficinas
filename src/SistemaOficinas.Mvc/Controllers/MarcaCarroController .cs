@@ -7,33 +7,31 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using SistemaOficinas.Domain.Interfaces.Repositorio;
 using SistemaOficinas.Domain.Entities;
+using SistemaOficinas.Aplicacao.Interfaces;
 
 namespace SistemaOficinas.Mvc.Controllers
 {
     public class MarcaCarroController : Controller
     {
         private readonly IMarcaCarroRepositorio _marcaCarroRepositorio;
+        private readonly IMarcaCarroApplicationService _marcaCarroApplicationService;
 
-        public MarcaCarroController( IMarcaCarroRepositorio marcaCarroRepositorio)
+        public MarcaCarroController(IMarcaCarroRepositorio marcaCarroRepositorio, IMarcaCarroApplicationService marcaCarroApplicationService)
         {
             _marcaCarroRepositorio = marcaCarroRepositorio;
+            _marcaCarroApplicationService = marcaCarroApplicationService;
         }
 
         // GET: MarcaCarro
         public async Task<IActionResult> Index()
         {
-            return View(await _marcaCarroRepositorio.Listar());
+            return View(await _marcaCarroApplicationService.Listar());
         }
 
         // GET: MarcaCarro/Details/5
         public async Task<IActionResult> Details(Guid id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var marcaCarro = await _marcaCarroRepositorio.Obter(id);
+            var marcaCarro = await _marcaCarroApplicationService.ObterMarcaCarro(id);
             if (marcaCarro == null)
             {
                 return NotFound();
@@ -67,12 +65,7 @@ namespace SistemaOficinas.Mvc.Controllers
         // GET: MarcaCarro/Edit/5
         public async Task<IActionResult> Edit(Guid id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var marcaCarro = await _marcaCarroRepositorio.Obter(id);
+            var marcaCarro = await _marcaCarroApplicationService.ObterMarcaCarro(id);
             if (marcaCarro == null)
             {
                 return NotFound();
@@ -142,7 +135,7 @@ namespace SistemaOficinas.Mvc.Controllers
 
         private bool MarcaCarroExists(Guid id)
         {
-            return _marcaCarroRepositorio.MarcaCarroExiste(id);
+            return _marcaCarroApplicationService.MarcaCarroExiste(id);
         }
     }
 }

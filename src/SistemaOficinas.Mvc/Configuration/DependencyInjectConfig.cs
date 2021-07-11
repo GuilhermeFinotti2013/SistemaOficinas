@@ -6,6 +6,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using SistemaOficinas.Domain.Interfaces.Repositorio;
 using SistemaOficinas.Data.Repositorio;
+using SistemaOficinas.Aplicacao.Interfaces;
+using SistemaOficinas.Aplicacao.Servicos;
 
 namespace SistemaOficinas.Mvc.Configuration
 {
@@ -13,6 +15,18 @@ namespace SistemaOficinas.Mvc.Configuration
     {
         public static IServiceCollection AddDependencyInjectConfig(this IServiceCollection services, IConfiguration configuration)
         {
+            #region Aplicação
+            services.AddScoped<IMarcaCarroApplicationService, MarcaCarroApplicationService>();
+            #endregion
+
+            #region Domain -> Service
+
+            #endregion
+
+            #region Domain -> Repository
+
+            #endregion
+
             #region Repositórios
             services.AddScoped<IMarcaCarroRepositorio, MarcaCarroRepositorio>();
             services.AddScoped<IFormaPagamentoRepositorio, FormaPagamentoRepositorio>();
