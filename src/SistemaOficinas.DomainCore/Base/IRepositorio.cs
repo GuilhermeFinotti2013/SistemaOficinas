@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
+using X.PagedList;
 
 namespace SistemaOficinas.DomainCore.Base
 {
@@ -11,7 +12,7 @@ namespace SistemaOficinas.DomainCore.Base
         Task Excluir(TEntidade entidade);
         Task ExcluirPorId(TChave id);
         Task Inserir(TEntidade entidade);
-        Task<IEnumerable<TEntidade>> Listar(Expression<Func<TEntidade, bool>> quando = null);
+        Task<IList<TEntidade>> Listar(Expression<Func<TEntidade, bool>> quando = null);
         Task<TEntidade> Obter(TChave id);
         Task<int> SaveAsync();
     }

@@ -23,9 +23,9 @@ namespace SistemaOficinas.Mvc.Controllers
         }
 
         // GET: FormaPagamento
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int? pagina)
         {
-            return View(await _formaPagamentoApplicationService.Listar());
+            return View(await _formaPagamentoApplicationService.Listar(pagina));
         }
 
         // GET: FormaPagamento/Details/5

@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using X.PagedList;
 
 namespace SistemaOficinas.Aplicacao.Servicos
 {
@@ -21,9 +22,14 @@ namespace SistemaOficinas.Aplicacao.Servicos
             _mapper = mapper;
         }
 
-        public async Task<IEnumerable<MarcaCarroViewModel>> Listar()
+        public async Task<IPagedList<MarcaCarroViewModel>> Listar(int? pagina)
         {
-            return _mapper.Map<IEnumerable<MarcaCarroViewModel>>(await _marcaCarroRepositorio.Listar());
+            int itensPorPagina = 20;
+            int numeroPagina = (pagina ?? 1);
+
+            IEnumerable<MarcaCarroViewModel> lista = _mapper.Map<IList<MarcaCarroViewModel>>(await _marcaCarroRepositorio.Listar());
+
+            return await lista.ToPagedListAsync(numeroPagina,itensPorPagina);
         }
 
         public bool MarcaCarroExiste(Guid idMarca)

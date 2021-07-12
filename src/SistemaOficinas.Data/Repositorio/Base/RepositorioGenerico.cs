@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using SistemaOficinas.DomainCore.Base;
 using SistemaOficinas.Data.ORM;
 using Microsoft.EntityFrameworkCore;
+using X.PagedList;
 
 namespace SistemaOficinas.Data.Repositorio.Base
 {
@@ -48,7 +49,7 @@ namespace SistemaOficinas.Data.Repositorio.Base
             await SaveAsync();
         }
 
-        public virtual async Task<IEnumerable<TEntidade>> Listar(Expression<Func<TEntidade, bool>> quando = null)
+        public virtual async Task<IList<TEntidade>> Listar(Expression<Func<TEntidade, bool>> quando = null)
         {
             if (quando == null)
             {

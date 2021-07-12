@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using SistemaOficinas.Domain.Interfaces.Repositorio;
 using SistemaOficinas.Domain.Entities;
 using SistemaOficinas.Aplicacao.Interfaces;
+using X.PagedList;
 
 namespace SistemaOficinas.Mvc.Controllers
 {
@@ -23,9 +24,9 @@ namespace SistemaOficinas.Mvc.Controllers
         }
 
         // GET: MarcaCarro
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int? pagina)
         {
-            return View(await _marcaCarroApplicationService.Listar());
+            return View(await _marcaCarroApplicationService.Listar(pagina));
         }
 
         // GET: MarcaCarro/Details/5

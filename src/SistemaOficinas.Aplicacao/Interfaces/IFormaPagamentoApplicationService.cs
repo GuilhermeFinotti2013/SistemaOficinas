@@ -9,7 +9,7 @@ namespace SistemaOficinas.Aplicacao.Interfaces
 {
     public interface IFormaPagamentoApplicationService
     {
-        Task<IEnumerable<FormaPagamentoViewModel>> Listar();
+        Task<IEnumerable<FormaPagamentoViewModel>> Listar(int? pagina);
         Task<FormaPagamentoViewModel> ObterFormaPagamento(Guid idFormaPagamento);
         bool FormaPagamentoExiste(Guid idFormaPagamento);
     }

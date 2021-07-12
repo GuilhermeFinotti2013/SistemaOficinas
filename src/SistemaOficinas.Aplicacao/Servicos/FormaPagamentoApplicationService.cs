@@ -26,7 +26,7 @@ namespace SistemaOficinas.Aplicacao.Servicos
             return _formaPagamentoRepositorio.FormaPagamentoExiste(idFormaPagamento);
         }
 
-        public async Task<IEnumerable<FormaPagamentoViewModel>> Listar()
+        public async Task<IEnumerable<FormaPagamentoViewModel>> Listar(int? pagina)
         {
             return _mapper.Map<IEnumerable<FormaPagamentoViewModel>>(await _formaPagamentoRepositorio.Listar());
         }
