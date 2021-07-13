@@ -13,10 +13,6 @@
                 <i class="glyphicon glyphicon-plus-sign"></i>&nbsp; Nova fabricante
             </button>
         </p>
-
-
-        
-
             <div class="animated fadeInRightBig">
                 <div class="panel panel-primary toggle">
                     <div class="panel-heading">
@@ -34,7 +30,7 @@
                             <thead>
                                 <tr>
                                     <th>
-                                        @Html.DisplayName("Nome")
+                                        <a asp-action="Index" asp-route-ordenacao="@ViewData["OrderByNome"]">@Html.DisplayName("Nome")</a>
                                     </th>
                                     <th style="width:295px;">Açôes</th>
                                 </tr>
@@ -69,7 +65,7 @@
 <div class="row col-12">
     <div class="form-group" style="margin: 15px 15px 5px 15px;">
         <div class="pull-right">
-            @Html.PagedListPager(Model, Paga => Url.Action("Index", new { pagina = Paga }))
+            @Html.PagedListPager(Model, Paga => Url.Action("Index", new { pagina = Paga, ordenacao = ViewData["ordenacao"] }))
         </div>
     </div>
 </div>

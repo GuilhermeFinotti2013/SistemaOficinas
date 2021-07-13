@@ -27,6 +27,11 @@ namespace SistemaOficinas.Aplicacao.Servicos
             int itensPorPagina = 20;
             int numeroPagina = (pagina ?? 1);
 
+            if (string.IsNullOrEmpty(ordenacao))
+            {
+                ordenacao = "Nome";
+            }
+
             IEnumerable<MarcaCarroViewModel> lista = _mapper.Map<IList<MarcaCarroViewModel>>(await _marcaCarroRepositorio.Listar(ordenacao));
 
             return await lista.ToPagedListAsync(numeroPagina,itensPorPagina);
