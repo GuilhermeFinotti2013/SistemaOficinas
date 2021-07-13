@@ -49,13 +49,31 @@ namespace SistemaOficinas.Data.Repositorio.Base
             await SaveAsync();
         }
 
-        public virtual async Task<IList<TEntidade>> Listar(Expression<Func<TEntidade, bool>> quando = null)
+        public virtual async Task<IList<TEntidade>> Listar(string ordenacao = null, Expression < Func<TEntidade, bool>> quando = null)
         {
-            if (quando == null)
+            List<TEntidade> lista;
+
+            if (string.IsNullOrEmpty(ordenacao))
+            {
+                ordenacao = "Id";
+            }
+            if (ordenacao.EndsWith("_desc"))
+            {
+                ordenacao = ordenacao.Substring(0, ordenacao.Length - 5);
+                lista = await _contexto.Set<TEntidade>().OrderByDescending(x => EF.Property<object>(x, ordenacao))
+                    .AsNoTracking().ToListAsync();
+            }
+            else
+            {
+                lista = await _contexto.Set<TEntidade>().OrderBy(x => EF.Property<object>(x, ordenacao))
+                    .AsNoTracking().ToListAsync();
+            }
+
+            /*if (quando == null)
             {
                 return await _contexto.Set<TEntidade>().AsNoTracking().ToListAsync();
-            }
-            return await _contexto.Set<TEntidade>().AsNoTracking().Where(quando).ToListAsync();
+            }*/
+            return await lista.ToListAsync();
         }
 
         public virtual async Task<TEntidade> Obter(TChave id)

@@ -22,12 +22,12 @@ namespace SistemaOficinas.Aplicacao.Servicos
             _mapper = mapper;
         }
 
-        public async Task<IPagedList<MarcaCarroViewModel>> Listar(int? pagina)
+        public async Task<IPagedList<MarcaCarroViewModel>> Listar(int? pagina, string ordenacao = null)
         {
             int itensPorPagina = 20;
             int numeroPagina = (pagina ?? 1);
 
-            IEnumerable<MarcaCarroViewModel> lista = _mapper.Map<IList<MarcaCarroViewModel>>(await _marcaCarroRepositorio.Listar());
+            IEnumerable<MarcaCarroViewModel> lista = _mapper.Map<IList<MarcaCarroViewModel>>(await _marcaCarroRepositorio.Listar(ordenacao));
 
             return await lista.ToPagedListAsync(numeroPagina,itensPorPagina);
         }

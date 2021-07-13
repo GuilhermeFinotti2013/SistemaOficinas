@@ -12,3 +12,5 @@
 /src/SistemaOficinas.DomainCore/bin
 /src/SistemaOficinas.Repository/bin
 /src/SistemaOficinas.Aplicacao/bin
+/src/SistemaOficinas.Testes/bin
+/src/SistemaOficinas.Testes/obj

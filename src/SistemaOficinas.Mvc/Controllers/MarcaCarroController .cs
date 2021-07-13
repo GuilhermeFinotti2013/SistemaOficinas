@@ -24,9 +24,13 @@ namespace SistemaOficinas.Mvc.Controllers
         }
 
         // GET: MarcaCarro
-        public async Task<IActionResult> Index(int? pagina)
+        public async Task<IActionResult> Index(int? pagina, string ordenacao)
         {
-            return View(await _marcaCarroApplicationService.Listar(pagina));
+            ViewData["ordenacao"] = ordenacao;
+            string orderByKey = string.IsNullOrEmpty(ordenacao) ? "Nome_desc" : "";
+            ViewData["OrderByNome"] = orderByKey;
+
+            return View(await _marcaCarroApplicationService.Listar(pagina, orderByKey));
         }
 
         // GET: MarcaCarro/Details/5

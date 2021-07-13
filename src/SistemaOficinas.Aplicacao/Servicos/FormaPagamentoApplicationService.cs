@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using X.PagedList;
 
 namespace SistemaOficinas.Aplicacao.Servicos
 {
@@ -26,9 +27,14 @@ namespace SistemaOficinas.Aplicacao.Servicos
             return _formaPagamentoRepositorio.FormaPagamentoExiste(idFormaPagamento);
         }
 
-        public async Task<IEnumerable<FormaPagamentoViewModel>> Listar(int? pagina)
+        public async Task<IEnumerable<FormaPagamentoViewModel>> Listar(int? pagina, string ordenacao = null)
         {
-            return _mapper.Map<IEnumerable<FormaPagamentoViewModel>>(await _formaPagamentoRepositorio.Listar());
+            int itensPorPagina = 20;
+            int numeroPagina = (pagina ?? 1);
+
+            IEnumerable<FormaPagamentoViewModel> lista = _mapper.Map<IList<FormaPagamentoViewModel>>(await _formaPagamentoRepositorio.Listar(ordenacao));
+
+            return await lista.ToPagedListAsync(numeroPagina, itensPorPagina);
         }
 
         public async Task<FormaPagamentoViewModel> ObterFormaPagamento(Guid idFormaPagamento)
