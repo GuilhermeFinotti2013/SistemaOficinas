@@ -32,6 +32,11 @@ namespace SistemaOficinas.Aplicacao.Servicos
             int itensPorPagina = 20;
             int numeroPagina = (pagina ?? 1);
 
+            if (string.IsNullOrEmpty(ordenacao))
+            {
+                ordenacao = "Descricao";
+            }
+
             IEnumerable<FormaPagamentoViewModel> lista = _mapper.Map<IList<FormaPagamentoViewModel>>(await _formaPagamentoRepositorio.Listar(ordenacao));
 
             return await lista.ToPagedListAsync(numeroPagina, itensPorPagina);

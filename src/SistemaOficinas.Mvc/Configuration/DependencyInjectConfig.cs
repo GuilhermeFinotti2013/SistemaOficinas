@@ -28,6 +28,10 @@ namespace SistemaOficinas.Mvc.Configuration
 
             #endregion
 
+            #region Configurações
+            services.AddSingleton<IConfiguration>(configuration);
+            #endregion
+
             #region Repositórios
             services.AddScoped<IMarcaCarroRepositorio, MarcaCarroRepositorio>();
             services.AddScoped<IFormaPagamentoRepositorio, FormaPagamentoRepositorio>();

@@ -22,9 +22,8 @@ namespace SistemaOficinas.Aplicacao.Servicos
             _mapper = mapper;
         }
 
-        public async Task<IPagedList<MarcaCarroViewModel>> Listar(int? pagina, string ordenacao = null)
+        public async Task<IPagedList<MarcaCarroViewModel>> Listar(int itensPorPagina, string ordenacao, int? pagina)
         {
-            int itensPorPagina = 20;
             int numeroPagina = (pagina ?? 1);
 
             if (string.IsNullOrEmpty(ordenacao))

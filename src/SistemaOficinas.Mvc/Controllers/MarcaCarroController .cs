@@ -9,18 +9,21 @@ using SistemaOficinas.Domain.Interfaces.Repositorio;
 using SistemaOficinas.Domain.Entities;
 using SistemaOficinas.Aplicacao.Interfaces;
 using X.PagedList;
+using Microsoft.Extensions.Configuration;
 
 namespace SistemaOficinas.Mvc.Controllers
 {
     public class MarcaCarroController : Controller
     {
+        private readonly IConfiguration _configuration;
         private readonly IMarcaCarroRepositorio _marcaCarroRepositorio;
         private readonly IMarcaCarroApplicationService _marcaCarroApplicationService;
 
-        public MarcaCarroController(IMarcaCarroRepositorio marcaCarroRepositorio, IMarcaCarroApplicationService marcaCarroApplicationService)
+        public MarcaCarroController(IMarcaCarroRepositorio marcaCarroRepositorio, IMarcaCarroApplicationService marcaCarroApplicationService, IConfiguration configuration)
         {
             _marcaCarroRepositorio = marcaCarroRepositorio;
             _marcaCarroApplicationService = marcaCarroApplicationService;
+            _configuration = configuration;
         }
 
         // GET: MarcaCarro
@@ -30,7 +33,9 @@ namespace SistemaOficinas.Mvc.Controllers
             string orderByKey = string.IsNullOrEmpty(ordenacao) ? "Nome_desc" : "";
             ViewData["OrderByNome"] = orderByKey;
 
-            return View(await _marcaCarroApplicationService.Listar(pagina, orderByKey));
+            int itensPorPagina = Convert.ToInt32(_configuration.GetSection("ConfiguracoesAplicacao").GetSection("Lista_QtdItensPagina").Value);
+
+            return View(await _marcaCarroApplicationService.Listar(itensPorPagina, orderByKey, pagina));
         }
 
         // GET: MarcaCarro/Details/5
