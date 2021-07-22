@@ -118,12 +118,7 @@ namespace SistemaOficinas.Mvc.Controllers
         // GET: MarcaCarro/Delete/5
         public async Task<IActionResult> Delete(Guid id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var marcaCarro = await _marcaCarroRepositorio.Obter(id);
+            var marcaCarro = await _marcaCarroApplicationService.ObterMarcaCarro(id);
             if (marcaCarro == null)
             {
                 return NotFound();

@@ -1,24 +1,33 @@
 ﻿@model SistemaOficinas.Aplicacao.ViewModels.MarcaCarroViewModel
 
 @{
-    ViewData["Title"] = "Details";
+    ViewBag.Title = "Detalhes do Fabricante: " + Model.Nome.ToUpper();
+    Layout = null;
 }
 
-<h1>Details</h1>
 
-<div>
-    <h4>MarcaCarro</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Nome)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Nome)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
-</div>
+<div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+            <h4 class="modal-title">@ViewBag.Title</h4>
+        </div>
+        <div class="modal-body">
+            <div class="form-horizontal">
+                <div>
+                    <dl>
+                    <dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.Nome)
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.Nome)
+                    </dd>
+                    </dl>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <input type="button" value="Fechar" class="btn btn-default" data-dismiss="modal" />
+        </div>
+    </div><!-- /.modal-content -->
+</div><!-- /.modal-dialog -->

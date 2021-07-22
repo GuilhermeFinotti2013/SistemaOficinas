@@ -1,9 +1,32 @@
-﻿@model SistemaOficinas.Domain.Entities.MarcaCarro
+﻿@model SistemaOficinas.Aplicacao.ViewModels.MarcaCarroViewModel
 
 @{
-    ViewData["Title"] = "Edit";
+    Layout = "";
+    ViewBag.Title = "Editar fabricante " + Model.Nome.ToUpper();
 }
 
+<div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+            <h4 class="modal-title">MedicalSystem</h4>
+        </div>
+        @using (Html.BeginForm())
+        {
+@Html.AntiForgeryToken()
+                <div class="modal-body">
+                    <div class="form-horizontal">
+                        test
+                    </div>
+                </div>
+                                <div class="modal-footer">
+                                    <input type="submit" value="Atualizar" class="btn btn-success" />
+                                    <input type="button" value="Cancelar" class="btn btn-default" data-dismiss="modal" />
+                                </div>}
+    </div>
+</div>
+
+<!--
 <h1>Edit</h1>
 
 <h4>MarcaCarro</h4>
@@ -28,7 +51,7 @@
 <div>
     <a asp-action="Index">Back to List</a>
 </div>
-
+    -->
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
